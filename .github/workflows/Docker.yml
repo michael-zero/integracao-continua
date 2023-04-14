@@ -14,9 +14,16 @@ jobs:
     - name: setup docker build
       uses: docker/setup-buildx-action@v2.5.0
     - name: Docker Login
-      
-  # You may pin to the exact commit or the version.
-  # uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.1.1
+      with:
+          # Artifact name
+          name: programago
+        
+    
+     # You may pin to the exact commit or the version.
+     # uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+    - name: docker login
       uses: docker/login-action@v2.1.0
       with:
       # Username used to log against the Docker registry
